@@ -1,0 +1,93 @@
+body {
+    background-color: #b3c6ff;
+}
+
+a {
+    color: yellow;
+}
+
+ul li a, a:hover, a:link, a:active{
+    color: inherit; 
+    text-decoration: none;
+    display: block;
+}
+
+button, textarea {
+    color: blue;
+}
+
+#header {
+    margin-top: 0px;
+    padding: 20px;
+    background-color: #3385ff;
+    /* color: #001433; */
+    color: white;
+    font-family: serif;
+}
+
+#header h1 {
+    font-size: 350%;
+}
+
+#footer {
+    padding-left: 20px;
+}
+
+#main {
+    margin-top: 0px;
+    padding: 20px;
+    background-color: blue;
+    color: white;
+}
+
+input{
+    color: blue;
+}
+
+.post {
+    font-size: 170%;
+}
+
+.comment {
+    color: white;
+    margin-left: 2em;
+}
+
+.about_author {
+    font-size: 90%;
+    margin-bottom: 1em;
+    color: yellow;
+}
+
+.levi_meni {
+    font-family: "Times New Roman", Georgia, Serif;
+    font-size: 140%;
+    background-color: #4db8ff;
+    padding: 1em;
+    /*padding-top: 2em;*/
+    /*padding-bottom: 2em;*/
+    /*padding-right: 2em;*/
+}
+
+.active {
+    background-color: #0099ff;
+    color: #00004d;
+}
+
+.levi_meni li:hover {
+    background-color: #0099ff;
+    cursor: pointer;
+}
+
+.home_page {
+    margin-left: 2em;
+}
+
+.btn {
+    color: blue;
+    /*font-weight: bold;*/
+}
+
+.form-control {
+    color: blue;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="sr-Latn">
+<head>
+	<title>Learn flask</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<script src="{{ url_for('static', filename='angular.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='angular-route.min.js') }}"></script>
+	
+	<script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+
+	<script src="{{ url_for('static', filename='app.js') }}"></script>
+	<script src="{{ url_for('static', filename='controllers.js') }}"></script>
+	
+</head>
+<body>
+	<div class = "container">
+		<div id="header">
+			<h1>Learn flask</h1>
+		</div>
+		<div id="main">
+			<div class="row">
+				{% block left_menu %}
+				{% endblock %}
+
+				{% block body %}
+				{% endblock %}
+			</div>
+		</div>
+	</div>
+
+	<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

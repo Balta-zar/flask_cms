@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+{% for message in get_flashed_messages() %}
+    <div class="flash">
+        {{ message }}
+    </div>
+{% endfor %}
+
+<h1>Hi {{ user.first_name }}</h1>
+<a href="admin/logout">Logout</a>
+<hr>
+<button id="button_for_post" onclick="view_place_for_post();">Add new post</button>
+        <div id="place_for_post">
+        </div>
+<hr>
+{% if posts %}
+    {% for post in posts %}
+        <div class="post">
+            <!-- TODO htmlentities(post['post']) -->
+            {{ post.post }}
+            <a href="admin/delete_post/{{ post.id }}">Delete</a>
+        </div>
+        {% if comments %}
+            {% for comment in comments %}
+                {% if comment.post_id == post.id %}
+                    <div class="comment">
+                        {{ comment.comment }}
+                        <div class="about_author">
+                            {{ comment.author }}
+                            <a href="admin/delete_comment/{{ comment.id }}">Delete</a>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <hr>
+    {% endfor %}
+{% else %}
+    <h3>There are no posts</h3>
+{% endif %}
+
+{% endblock %}

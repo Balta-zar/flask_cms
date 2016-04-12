@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block body %}
+	<h2>Signin</h2>
+	
+	{% for message in get_flashed_messages() %}
+		<div class="flash">
+			{{ message }}
+		</div>
+	{% endfor %}
+	
+	<br><hr>
+	
+	<form action="signin" method="post">
+		<dl>
+            <dt>Username:</dt>
+            <dd><input type="text" name="username" value="{{ request.form.username }}"</dd>            
+            <dt>Password:</dt>
+            <dd><input type="password" name="password"</dd>
+            <dt>First name:</dt>
+            <dd><input type="text" name="first_name" value="{{ request.form.first_name }}"</dd>            
+            <dt>Last name:</dt>
+            <dd><input type="text" name="last_name" value="{{ request.form.last_name }}"</dd>
+        </dl>
+        <p><input type="submit" name="submit" value="Signin"</p>
+	</form>
+
+    <form action="signin" method="post">
+		<dl>
+            <dt>REGISTER:</dt>
+            <dd><input type="text" name="username" value="{{ request.form.username }}"</dd>
+            <dt>Password:</dt>
+            <dd><input type="password" name="password"</dd>
+            <dt>First name:</dt>
+            <dd><input type="text" name="first_name" value="{{ request.form.first_name }}"</dd>
+            <dt>Last name:</dt>
+            <dd><input type="text" name="last_name" value="{{ request.form.last_name }}"</dd>
+        </dl>
+        <p><input type="submit" name="submit" value="Register"</p>
+	</form>
+{% endblock %}
+

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block left_menu %}
+<div ng-app="index" ng-controller="IndexController"> <!-- zatvara se u poslednjoj liniji block body -->
+<div class="col-md-3">
+    <ul class="levi_meni" ng-init="variable.post_id=-1; variable.post_title='Home'">
+        <li ng-class="{'active': variable.post_id === -1}"
+            ng-click="variable.post_id=-1; variable.post_title='Home';">Home</li>
+        {% for post in posts %}
+            <li ng-class="{'active': variable.post_id === {{post.id}}}"
+                ng-click="reset(); variable.post_id={{post.id}};
+                          variable.post_title='{{ post.post }}'; retrieve()">
+                {{ post.post }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
+
+{% block body %}
+<div class="col-md-9">
+    <h2>{a variable.post_title a}</h2>
+    <br>
+    
+    <!-- post_id === -1 znaci da se nalazimo na home page -->
+    <div ng-show="variable.post_id === -1" class="comment">
+        Home page text
+    </div>
+
+    <div ng-hide="variable.post_id === -1" ng-repeat="comment in variable.data">
+        <div class="comment">
+            {a comment.comment a}
+            <div class="about_author">
+                {a comment.author a}
+            </div>
+        </div>
+        <hr>
+    </div>
+    
+    <!-- Dodavanje komentara. Ako se radi o home page (post_id===-1 tada se ne prikazuje forma za dodavanje komentara) -->
+    <div ng-hide="variable.post_id===-1" id="new_comment">
+        <br>
+        <h3>Ostavite komentar</h3><br>
+        <form ng-submit="send_comment(variable.post_id)"
+              ng-init="variable.comment=''; variable.author=''">
+            <textarea ng-model="variable.comment" style="width: 50%;" placeholder="Type your comment here"></textarea>
+            <br>
+            <input ng-model="variable.author" type="text" placeholder="Your name">
+            <br>
+            <input type="submit" value="Send comment">
+        </form>
+    </div>
+</div> <!-- col-md-9 -->
+</div> <!-- <div ng-app="index" > iz prve linije left_menu -->
+{% endblock %}

@@ -1,0 +1,31 @@
+<h2>{a variable.data[0].post a}</h2>
+<br>
+<div ng-repeat="comment in variable.data">
+    <div class="comment">
+        {a comment.comment a}
+        <div class="about_author">
+            {a comment.author a}
+        </div>
+    </div>
+    <hr>
+</div>
+
+<br>
+<h3>Ostavite komentar</h3><br>
+<div class="row">
+    <div class="col-md-6">
+        <form name="new_comment"
+              ng-submit="send_comment()"
+              ng-init="variable.comment=''; variable.author=''">
+            <textarea class="form-control" rows="3" placeholder="Type your comment here"
+                      ng-model="variable.comment"></textarea>
+            <br>
+            <input type="text" placeholder="Your name" class="form-control"
+                   ng-model="variable.author">
+            <br>
+            <input type="submit" class="btn btn-default" value="Send comment">
+        </form>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>

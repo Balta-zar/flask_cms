@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block left_menu %}
+<div ng-app="proba" ng-controller="ProbaController"> <!-- zatvara se u poslednjoj liniji block body -->
+<div class="col-md-3">
+    <ul class="levi_meni">
+        <li ng-class="{'active': getId() === -1}">
+            <a href="#/" class="">Home</a>
+        </li>
+        {% for post in posts %}
+            <!-- ovo getId() u sledecem redu se pozove 10ak puta po svakom refreshu :/ -->
+            <li ng-class="{'active': getId() === {{post.id}}}">
+                <a href="#/post/{{ post.id }}" class="block">
+                    {{ post.post }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
+
+{% block body %}
+<div class="col-md-9" ng-view>
+</div>
+</div> <!-- <div ng-app="proba" > iz prve linije left_menu -->
+{% endblock %}
